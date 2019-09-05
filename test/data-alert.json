@@ -1,0 +1,44 @@
+{
+  "id": "cee90820-cee2-11e9-a84b-45ccc2575608",
+  "type": "event",
+  "triggerId": "ATUD7C4gL",
+  "name": "全量天气预警",
+  "success": true,
+  "datetime": "2019-09-04T15:08:33+08:00",
+  "location": {
+    "v3": "000000",
+    "name": "全国",
+    "id": "000000",
+    "latitude": "0",
+    "longitude": "0",
+    "path": "全国"
+  },
+  "data": [
+    {
+      "success": true,
+      "rule": [
+        "alarm"
+      ],
+      "data": [
+        {
+          "imageUrl": "https://static.sencdn.com/alarm-images-v2/11B14-yellow-alarm.png?156758091135",
+          "id": "ad68280b-8c25-487a-8171-9d72358435f2",
+          "text": "元谋县气象台2019年9月4日14时55分发布雷电黄色预警信号:预计未来12小时内我县境内将出现雷电活动，并局地伴有短时强降水、大风、冰雹等强对流天气，请注意防范。",
+          "title": "元谋县气象台发布雷电黄色预警[Ⅲ级/较重]",
+          "sender": "元谋县气象台",
+          "colorCode": "yellow",
+          "colorText": "黄色",
+          "eventName": "雷电事件",
+          "eventId": "11B14",
+          "regionId": "532328",
+          "locationV3": "WK86NQDC254P",
+          "identifier": "53232841600000_20190904150413",
+          "date": "2019-09-04T15:04:13+08:00",
+          "expiredAt": "2019-09-06T03:04:13+08:00",
+          "references": "",
+          "status": "ALERT"
+        }
+      ]
+    }
+  ]
+}
