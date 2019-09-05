@@ -11,18 +11,23 @@
 根据需要修改不同环境下的配置文件，需要两个数据存储，一个是 MySQL, 一个是 Redis。
 程序支持把接受到的消息放到 Redis 的三个 KEY 中：
 
+```
 XZ_ALARM_<v3> 某个城市的预警
 XZ_ALARM_ALL 当前有效的预警列表
 XZ_ALARM_LIST 当前有效的预警列表(兼容需要，格式不同)
+```
 
 以及数据库的 `xz_alarm` 表中
 
-该格式设计主要为了兼容 `心知` 官方 API 服务的字段要求。用户可以根据需求结构上游的传入值，进行定制修正。
+该格式设计主要为了兼容 `心知` 官方 API 服务的字段要求。
+用户可以根据需求，结合 whenbot.com 上游的传入数据，进行修改。
 
 ### webhook 地址
 `http://{ServerIp}:{Port}/api/v1/webhook`
 
 ### 安装说明
+
+nodejs版本要求: v10以上
 
 ```
 git clone http://github.com/seniverse/whenbot-alarm-server.git
@@ -32,7 +37,7 @@ npm build
 node  dist/index.js
 ```
 
-可以根据需要使用forever / pm2 来进行生产环境的部署
+可以根据需要使用 forever 或者 pm2 来进行生产环境的部署
 
 ### 推送过来的预警数据格式
 
@@ -85,6 +90,7 @@ node  dist/index.js
 
 主要字段在 data.data[] 中， 一般为一条，但结构支持多条的可能性。各子字段说明如下：
 
+```
 * imageUrl, 参考图片
 * id, 内部标识
 * text, 预警正文
@@ -101,3 +107,4 @@ node  dist/index.js
 * expiredAt, 过期时间
 * references, 关联预警编号
 * status, 预警状态，有ALTER, CANCEL, UPDATE几种
+```
