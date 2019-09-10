@@ -2,6 +2,7 @@ export default {
   env: 'production',
   useDB: true,
   useRedis: true,
+  useRedisPub: true,
   services: {
     mysql: {
       host: 'localhost',

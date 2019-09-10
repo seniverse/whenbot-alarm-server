@@ -46,7 +46,8 @@ interface Logger {
 export interface Config {
   env: string
   useDB: boolean
-  useRedis: boolean
+  useRedis: boolean,
+  useRedisPub: boolean,
   appName: string
   serverName: string
   port: string | number

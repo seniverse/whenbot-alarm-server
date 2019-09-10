@@ -1,5 +1,6 @@
 export default {
   env: 'local',
   useDB: true,
-  useRedis: true
+  useRedis: true,
+  useRedisPub: true
 }

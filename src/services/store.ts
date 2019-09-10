@@ -76,6 +76,24 @@ const setDB = async (
   }
 }
 
+const publishRedis = async (
+  alarm: AlarmContent,
+  location: Location,
+  cancel = false  
+) => {
+  const { status, identifier, references } = alarm
+  try {
+    if (!cancel) {
+      const formattedAlarm = Object.assign(formatter.alarmBase(alarm), {
+        city: location.v3
+      })
+      await redisService.publish('weatherAlarm', formattedAlarm)
+    }
+  } catch (error) {
+    logger.error(`[REDIS-PUBLISH-ERROR]${JSON.stringify(error)}`)
+  }
+}
+
 const setAlarm = async (
   alarm: AlarmContent,
   location: Location,
@@ -86,6 +104,9 @@ const setAlarm = async (
   }
   if (config.useDB) {
     await setDB(alarm, location, cancel)
+  }
+  if (config.useRedisPub) {
+    await publishRedis(alarm, location, cancel) 
   }
 }
 

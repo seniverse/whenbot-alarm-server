@@ -1,6 +1,7 @@
 export default {
   useDB: true,
   useRedis: true,
+  useRedisPub: true,
   appName: 'whenbot-alarm-receiver',
   serverName: 'whenbot-12306-receiver',
   port: 9527,

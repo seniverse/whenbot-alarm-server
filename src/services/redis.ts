@@ -22,11 +22,20 @@ const set = async (key, value, ttl = TTL) => {
   const redis = await getRedis()
   const data = JSON.stringify(value)
   const result = await redis.set(key, data, 'EX', ttl)
-  logger.debug(`[store][${key}:${ttl}] ${data}`)
+  logger.debug(`[store][set][${key}:${ttl}] ${data}`)
+  return result
+}
+
+const publish = async (channel, value) => {
+  const redis = await getRedis()
+  const data = JSON.stringify(value)
+  const result = await redis.publish(channel, data)
+  logger.debug(`[store][publish][${channel}] ${data}`)
   return result
 }
 
 export default {
   get,
-  set
+  set,
+  publish
 }
