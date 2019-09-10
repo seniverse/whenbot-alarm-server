@@ -7,7 +7,9 @@ export const isTargetRequest = (ctx: Ctx, whiteList: RequestConfig[]) => {
   const checked = whiteList.some(
     option => option.method === method && option.url.test(url)
   )
-  if (checked) { logger.info(`[WHITELIST][method:${method}] ${url}`) }
+  if (checked) {
+    logger.info(`[WHITELIST][method:${method}] ${url}`)
+  }
   return checked
 }
 
@@ -16,7 +18,9 @@ const loggerMiddleware = (options: {
 }): Controller => async (ctx, next) => {
   const { whiteList } = options
   const checkWhite = await isTargetRequest(ctx, whiteList)
-  if (checkWhite) { return await next() }
+  if (checkWhite) {
+    return await next()
+  }
 
   const url = ctx.request.URL
   const { pathname } = url

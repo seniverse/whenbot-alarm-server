@@ -8,13 +8,7 @@ const modules: Route[] = [
   {
     method: 'post',
     route: '/',
-    handlers: [
-      check.body([
-        'location',
-        'data'
-      ]),
-      controller.checkContent
-    ]
+    handlers: [check.body(['location', 'data']), controller.checkContent]
   }
 ]
 
